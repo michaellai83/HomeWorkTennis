@@ -25,6 +25,14 @@ namespace HomeWorkTennis
             GetScoreResult("Fifteen Love");
         }
 
+        [Test]
+        public void T03_ThirtyLove()
+        {
+            _tennisGame.FirstPlayerScoreTimes();
+            _tennisGame.FirstPlayerScoreTimes();
+            GetScoreResult("Thirty Love");
+        }
+
         private void GetScoreResult(string expect)
         {
             var actual = _tennisGame.GetScoreResult();
