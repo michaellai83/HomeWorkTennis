@@ -15,25 +15,32 @@ namespace HomeWorkTennis
         [Test]
         public void T01_LoveAll()
         {
-            GetScoreResult("Love All");
+            ScoreResultShoulBe("Love All");
         }
 
         [Test]
         public void T02_FifteenLove()
         {
-            _tennisGame.FirstPlayerScoreTimes();
-            GetScoreResult("Fifteen Love");
+            GetFirstPlayerScoreTimes(1);
+            ScoreResultShoulBe("Fifteen Love");
         }
 
         [Test]
         public void T03_ThirtyLove()
         {
-            _tennisGame.FirstPlayerScoreTimes();
-            _tennisGame.FirstPlayerScoreTimes();
-            GetScoreResult("Thirty Love");
+            GetFirstPlayerScoreTimes(2);
+            ScoreResultShoulBe("Thirty Love");
         }
 
-        private void GetScoreResult(string expect)
+        private void GetFirstPlayerScoreTimes(int times)
+        {
+            for(int i = 0; i < times; i++)
+            {
+                _tennisGame.FirstPlayerScoreTimes();
+            }          
+        }
+
+        private void ScoreResultShoulBe(string expect)
         {
             var actual = _tennisGame.GetScoreResult();
             actual.Should().Be(expect);
