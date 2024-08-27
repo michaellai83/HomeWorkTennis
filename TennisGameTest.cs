@@ -53,6 +53,13 @@ namespace HomeWorkTennis
             ScoreResultShoulBe("Love Thirty");
         }
 
+        [Test]
+        public void T07_LoveForty()
+        {
+            GetSecondPlayerScoreTimes(3);
+            ScoreResultShoulBe("Love Forty");
+        }
+
         private void GetSecondPlayerScoreTimes(int times)
         {
             for (int i = 0; i < times; i++)
