@@ -9,7 +9,7 @@ namespace HomeWorkTennis
         [SetUp]
         public void Setup()
         {
-            _tennisGame = new TennisGame("Ken");
+            _tennisGame = new TennisGame("Ken", "Ian");
         }
 
         [Test]
@@ -98,6 +98,14 @@ namespace HomeWorkTennis
             GetFirstPlayerScoreTimes(4);
             GetSecondPlayerScoreTimes(3);
             ScoreResultShoulBe("Ken Adv.");
+        }
+
+        [Test]
+        public void T13_SecondPlayerAdv()
+        {
+            GetFirstPlayerScoreTimes(3);
+            GetSecondPlayerScoreTimes(4);
+            ScoreResultShoulBe("Ian Adv.");
         }
 
         private void GetSecondPlayerScoreTimes(int times)

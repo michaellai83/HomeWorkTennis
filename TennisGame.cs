@@ -15,14 +15,16 @@ namespace HomeWorkTennis
         };
         private int _secondPlayerScoreTimes;
         private string _firstPlayerName;
+        private string _secondPlayerName;
 
         public TennisGame()
         {
         }
 
-        public TennisGame(string firstPlayerName)
+        public TennisGame(string firstPlayerName, string secondPlayerName)
         {
             _firstPlayerName = firstPlayerName;
+            _secondPlayerName = secondPlayerName;
         }
 
         public string GetScoreResult()
@@ -35,7 +37,12 @@ namespace HomeWorkTennis
                     {
                         return $"{_firstPlayerName} Adv.";
                     }
-                    
+
+                    if (_secondPlayerScoreTimes - _firstPlayerScoreTimes == 1)
+                    {
+                        return $"{_secondPlayerName} Adv.";
+                    }
+
                 }
                 return $"{_scoreLookup[_firstPlayerScoreTimes]} {_scoreLookup[_secondPlayerScoreTimes]}";
             }
