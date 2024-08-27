@@ -29,28 +29,59 @@ namespace HomeWorkTennis
 
         public string GetScoreResult()
         {
-            if (_firstPlayerScoreTimes != _secondPlayerScoreTimes)
+            if (IsDifferentScore())
             {
-                if (_firstPlayerScoreTimes > 3 || _secondPlayerScoreTimes > 3)
+                if (IsReadyGamePoint())
                 {
-                    var leadingPlayerName = _firstPlayerScoreTimes > _secondPlayerScoreTimes ? _firstPlayerName : _secondPlayerName;
-
-                    if (Math.Abs(_firstPlayerScoreTimes - _secondPlayerScoreTimes) == 1)
-                    {
-                        return $"{leadingPlayerName} Adv.";
-                    }
-
-                    return $"{leadingPlayerName} Win.";
+                    return IsAdv() ?
+                        $"{GetLeadingPlayerName()} Adv." :
+                        $"{GetLeadingPlayerName()} Win.";
                 }
-                return $"{_scoreLookup[_firstPlayerScoreTimes]} {_scoreLookup[_secondPlayerScoreTimes]}";
+                return GetLookupResult();
             }
 
-            if (_firstPlayerScoreTimes >= 3)
-            {
-                return "Deuce";
-            }
+            return IsGameDeuce() ? GetDeuce() : GameSameScore();
+        }
 
+        private string GetLookupResult()
+        {
+            return $"{_scoreLookup[_firstPlayerScoreTimes]} {_scoreLookup[_secondPlayerScoreTimes]}";
+        }
+
+        private static string GetDeuce()
+        {
+            return "Deuce";
+        }
+
+        private bool IsAdv()
+        {
+            return Math.Abs(_firstPlayerScoreTimes - _secondPlayerScoreTimes) == 1;
+        }
+
+        private string GetLeadingPlayerName()
+        {
+            return _firstPlayerScoreTimes > _secondPlayerScoreTimes ? _firstPlayerName : _secondPlayerName;
+        }
+
+        private bool IsReadyGamePoint()
+        {
+            return _firstPlayerScoreTimes > 3 || _secondPlayerScoreTimes > 3;
+        }
+
+        private bool IsDifferentScore()
+        {
+            return _firstPlayerScoreTimes != _secondPlayerScoreTimes;
+        }
+
+        private string GameSameScore()
+        {
             return $"{_scoreLookup[_firstPlayerScoreTimes]} All";
+        }
+
+        private bool IsGameDeuce()
+        {
+            return _firstPlayerScoreTimes == _secondPlayerScoreTimes
+                && _firstPlayerScoreTimes >= 3;
         }
 
         public void FirstPlayerScoreTimes()
