@@ -31,7 +31,7 @@ namespace HomeWorkTennis
         {
             if (_firstPlayerScoreTimes != _secondPlayerScoreTimes)
             {
-                if (_firstPlayerScoreTimes >= 3)
+                if (_firstPlayerScoreTimes > 3 || _secondPlayerScoreTimes > 3)
                 {
                     if (Math.Abs(_firstPlayerScoreTimes - _secondPlayerScoreTimes) == 1)
                     {
@@ -41,6 +41,15 @@ namespace HomeWorkTennis
                             leadingPlayerName = _secondPlayerName;
                         }
                         return $"{leadingPlayerName} Adv.";
+                    }
+                    else
+                    {
+                        var leadingPlayerName = _firstPlayerName;
+                        if (_secondPlayerScoreTimes > _firstPlayerScoreTimes)
+                        {
+                            leadingPlayerName = _secondPlayerName;
+                        }
+                        return $"{leadingPlayerName} Win.";
                     }
 
                 }
