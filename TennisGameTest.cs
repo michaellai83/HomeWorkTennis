@@ -84,6 +84,14 @@ namespace HomeWorkTennis
             ScoreResultShoulBe("Deuce");
         }
 
+        [Test]
+        public void T11_Deuce6VS6()
+        {
+            GetFirstPlayerScoreTimes(6);
+            GetSecondPlayerScoreTimes(6);
+            ScoreResultShoulBe("Deuce");
+        }
+
         private void GetSecondPlayerScoreTimes(int times)
         {
             for (int i = 0; i < times; i++)
