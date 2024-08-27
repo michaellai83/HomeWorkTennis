@@ -33,25 +33,14 @@ namespace HomeWorkTennis
             {
                 if (_firstPlayerScoreTimes > 3 || _secondPlayerScoreTimes > 3)
                 {
+                    var leadingPlayerName = _firstPlayerScoreTimes > _secondPlayerScoreTimes ? _firstPlayerName : _secondPlayerName;
+
                     if (Math.Abs(_firstPlayerScoreTimes - _secondPlayerScoreTimes) == 1)
                     {
-                        var leadingPlayerName = _firstPlayerName;
-                        if (_secondPlayerScoreTimes > _firstPlayerScoreTimes)
-                        {
-                            leadingPlayerName = _secondPlayerName;
-                        }
                         return $"{leadingPlayerName} Adv.";
                     }
-                    else
-                    {
-                        var leadingPlayerName = _firstPlayerName;
-                        if (_secondPlayerScoreTimes > _firstPlayerScoreTimes)
-                        {
-                            leadingPlayerName = _secondPlayerName;
-                        }
-                        return $"{leadingPlayerName} Win.";
-                    }
 
+                    return $"{leadingPlayerName} Win.";
                 }
                 return $"{_scoreLookup[_firstPlayerScoreTimes]} {_scoreLookup[_secondPlayerScoreTimes]}";
             }
