@@ -5,6 +5,11 @@ namespace HomeWorkTennis
     public class TennisGame
     {
         private int _firstPlayerScoreTimes;
+        private Dictionary<int, string> _scoreLookup = new Dictionary<int, string>
+        {
+            {1,"Fifteen" },
+            {2,"Thirty" },
+        };
 
         public TennisGame()
         {
@@ -12,14 +17,9 @@ namespace HomeWorkTennis
 
         public string GetScoreResult()
         {
-            if(_firstPlayerScoreTimes == 1)
+            if(_firstPlayerScoreTimes == 1 || _firstPlayerScoreTimes == 2)
             {
-                return "Fifteen Love";
-            }
-
-            if (_firstPlayerScoreTimes == 2)
-            {
-                return "Thirty Love";
+                return $"{_scoreLookup[_firstPlayerScoreTimes]} Love";
             }
 
             return "Love All";
