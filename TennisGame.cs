@@ -18,7 +18,7 @@ namespace HomeWorkTennis
 
         public string GetScoreResult()
         {
-            if(_firstPlayerScoreTimes == 1 || _firstPlayerScoreTimes == 2 || _firstPlayerScoreTimes == 3)
+            if(_firstPlayerScoreTimes > 0)
             {
                 return $"{_scoreLookup[_firstPlayerScoreTimes]} Love";
             }
