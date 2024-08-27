@@ -26,6 +26,11 @@ namespace HomeWorkTennis
                 return $"{_scoreLookup[_firstPlayerScoreTimes]} {_scoreLookup[_secondPlayerScoreTimes]}";
             }
 
+            if(_firstPlayerScoreTimes == 3)
+            {
+                return "Deuce";
+            }
+
             return $"{_scoreLookup[_firstPlayerScoreTimes]} All";
         }
 
