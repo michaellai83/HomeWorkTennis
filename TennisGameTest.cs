@@ -116,6 +116,14 @@ namespace HomeWorkTennis
             ScoreResultShoulBe("Ken Win.");
         }
 
+        [Test]
+        public void T15_SecondPlayerWin()
+        {
+            GetFirstPlayerScoreTimes(3);
+            GetSecondPlayerScoreTimes(5);
+            ScoreResultShoulBe("Ian Win.");
+        }
+
         private void GetSecondPlayerScoreTimes(int times)
         {
             for (int i = 0; i < times; i++)
