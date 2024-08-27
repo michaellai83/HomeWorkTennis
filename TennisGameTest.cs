@@ -18,5 +18,13 @@ namespace HomeWorkTennis
             var actual = _tennisGame.GetScoreResult();
             actual.Should().Be("Love All");
         }
+
+        [Test]
+        public void T02_FifteenLove()
+        {
+            _tennisGame.FirstPlayerScoreTimes();
+            var actual = _tennisGame.GetScoreResult();
+            actual.Should().Be("Fifteen Love");
+        }
     }
 }
