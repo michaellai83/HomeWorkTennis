@@ -14,15 +14,29 @@ namespace HomeWorkTennis
             {3,"Forty" }
         };
         private int _secondPlayerScoreTimes;
+        private string _firstPlayerName;
 
         public TennisGame()
         {
+        }
+
+        public TennisGame(string firstPlayerName)
+        {
+            _firstPlayerName = firstPlayerName;
         }
 
         public string GetScoreResult()
         {
             if (_firstPlayerScoreTimes != _secondPlayerScoreTimes)
             {
+                if(_firstPlayerScoreTimes >= 3)
+                {
+                    if(_firstPlayerScoreTimes - _secondPlayerScoreTimes == 1)
+                    {
+                        return $"{_firstPlayerName} Adv.";
+                    }
+                    
+                }
                 return $"{_scoreLookup[_firstPlayerScoreTimes]} {_scoreLookup[_secondPlayerScoreTimes]}";
             }
 
