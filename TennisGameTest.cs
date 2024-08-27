@@ -79,9 +79,14 @@ namespace HomeWorkTennis
         [Test]
         public void T10_Deuce()
         {
+            GetGameDeuce();
+            ScoreResultShoulBe("Deuce");
+        }
+
+        private void GetGameDeuce()
+        {
             GetFirstPlayerScoreTimes(3);
             GetSecondPlayerScoreTimes(3);
-            ScoreResultShoulBe("Deuce");
         }
 
         [Test]
@@ -95,32 +100,32 @@ namespace HomeWorkTennis
         [Test]
         public void T12_FirstPlayerAdv()
         {
-            GetFirstPlayerScoreTimes(4);
-            GetSecondPlayerScoreTimes(3);
+            GetGameDeuce();
+            GetFirstPlayerScoreTimes(1);
             ScoreResultShoulBe("Ken Adv.");
         }
 
         [Test]
         public void T13_SecondPlayerAdv()
         {
-            GetFirstPlayerScoreTimes(3);
-            GetSecondPlayerScoreTimes(4);
+            GetGameDeuce();
+            GetSecondPlayerScoreTimes(1);
             ScoreResultShoulBe("Ian Adv.");
         }
 
         [Test]
         public void T14_FirstPlayerWin()
         {
-            GetFirstPlayerScoreTimes(5);
-            GetSecondPlayerScoreTimes(3);
+            GetGameDeuce();
+            GetFirstPlayerScoreTimes(2);
             ScoreResultShoulBe("Ken Win.");
         }
 
         [Test]
         public void T15_SecondPlayerWin()
         {
-            GetFirstPlayerScoreTimes(3);
-            GetSecondPlayerScoreTimes(5);
+            GetGameDeuce();
+            GetSecondPlayerScoreTimes(2);
             ScoreResultShoulBe("Ian Win.");
         }
 
