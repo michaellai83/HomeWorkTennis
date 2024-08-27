@@ -129,6 +129,18 @@ namespace HomeWorkTennis
             ScoreResultShoulBe("Ian Win.");
         }
 
+        [Test]
+        [TestCase(0, 2, "Love Thirty")]
+        [TestCase(3, 1, "Forty Fifteen")]
+        [TestCase(4, 2, "Ken Win.")]
+        [TestCase(1, 4, "Ian Win.")]
+        public void A99_Others(int firstPlayerScore, int secondPlayerScore, string expected)
+        {
+            GetFirstPlayerScoreTimes(firstPlayerScore);
+            GetSecondPlayerScoreTimes(secondPlayerScore);
+            ScoreResultShoulBe(expected);
+        }
+
         private void GetSecondPlayerScoreTimes(int times)
         {
             for (int i = 0; i < times; i++)
